@@ -1,0 +1,28 @@
+---
+# Genesis-Core: Ansible Playbook
+# Classification: OMEGA-CORE
+
+- name: Deploy Genesis-Core Nodes
+  hosts: genesis_cluster
+  become: yes
+
+  tasks:
+    - name: Ensure Docker Engine is present (Zero-Friction)
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Pull Genesis-Core Ultra-Light Image
+      docker_image:
+        name: genesis-core:latest
+        source: pull
+
+    - name: Ignite Genesis Hypervisor
+      docker_container:
+        name: genesis-hypervisor
+        image: genesis-core:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "8080:8080" # Web UI
+          - "50051:50051" # gRPC Synaptic Router

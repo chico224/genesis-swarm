@@ -1,0 +1,23 @@
+/* Genesis-Core Global Styles — Production */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg-deep:    #050508;
+    --bg-panel:   #0d0d14;
+    --bg-card:    #12121e;
+    --border:     #1f1f35;
+    --accent:     #00ffc8;
+    --accent-dim: #00ffc830;
+    --danger:     #ff2d55;
+    --text:       #e2e2f0;
+    --text-muted: #6b6b90;
+    --font:       'Inter', sans-serif;
+    --radius:     10px;
+}
+
+html, body { height: 100%; background: var(--bg-deep); color: var(--text); font-family: var(--font); }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-panel); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
