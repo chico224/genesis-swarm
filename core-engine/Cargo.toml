@@ -1,0 +1,20 @@
+[package]
+name = "genesis_core"
+version = "1.0.0-omega"
+edition = "2021"
+authors = ["Oumar Sow"]
+
+[dependencies]
+aes-gcm = "0.10"
+rand = "0.8"
+axum = { version = "0.6", features = ["ws"] }
+tower-http = { version = "0.4", features = ["cors"] }
+futures-util = "0.3"
+tokio = { version = "1.28", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+env_logger = "0.10"
+
+[build-dependencies]
+tonic-build = "0.9"

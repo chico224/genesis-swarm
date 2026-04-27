@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package genesis_swarm;
+
+// Service principal de l'Hyperviseur
+service HypervisorService {
+  // Ouvre une connexion synaptique bi-directionnelle avec un noeud cognitif
+  rpc ConnectSynapse(stream AgentSignal) returns (stream HypervisorCommand);
+}
+
+// Signal envoyé par l'Agent Python vers l'Hyperviseur Rust
+message AgentSignal {
+  string agent_id = 1;
+  string status = 2; // ONLINE, BUSY, ERROR
+  float cpu_usage = 3;
+  float memory_crystal_size_mb = 4;
+  string current_task = 5;
+}
+
+// Commande de l'Hyperviseur envoyée vers l'Agent Python
+message HypervisorCommand {
+  string target_agent_id = 1;
+  string action = 2; // SLEEP, WAKE, PROCESS_PROMPT, ASSIMILATE
+  string payload = 3; // JSON contenant le Hyper-Prompt ou les data
+  int64 timestamp_ms = 4;
+}

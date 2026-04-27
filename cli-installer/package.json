@@ -1,0 +1,14 @@
+{
+  "name": "genesis-swarm",
+  "version": "1.0.0",
+  "description": "Enterprise Multi-Agent Orchestrator — Genesis-Core",
+  "main": "bin/cli.js",
+  "bin": {
+    "genesis-swarm": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node bin/cli.js run"
+  },
+  "author": "Oumar Sow",
+  "license": "UNLICENSED"
+}

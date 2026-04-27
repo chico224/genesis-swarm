@@ -1,0 +1,26 @@
+version: '3.8'
+
+# Genesis-Core Local Sandbox
+# Classification: OMEGA-CORE
+
+services:
+  hypervisor:
+    build: 
+      context: ../../
+      dockerfile: infrastructure/docker/Dockerfile
+    ports:
+      - "50051:50051"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0' # Allocation maximale de ressources locales
+          memory: 4G
+
+  dashboard:
+    build:
+      context: ../../interface
+    ports:
+      - "3000:3000"
+    depends_on:
+      - hypervisor
